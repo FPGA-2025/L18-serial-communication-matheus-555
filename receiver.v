@@ -38,9 +38,7 @@ module receiver (
     
                 if (contador_bit < 8) begin
                     buffer_dados = {serial_in, buffer_dados[7:1]};
-                end 
-                
-                if (contador_bit == 8) begin
+                end else begin
                     _data_out = buffer_dados[6:0];
                     _parity_ok_n = ^{buffer_dados[7:0]};
                     _ready = 1;
